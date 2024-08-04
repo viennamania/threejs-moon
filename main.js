@@ -128,7 +128,11 @@ const moon = new THREE.Mesh(
     normalMap: moonNormalTexture,
   })
 );
-moon.position.set(-30, -20, 35);
+//moon.position.set(-30, -20, 35);
+
+moon.position.set(0, 0, 0);
+
+
 scene.add(moon);
 
 // animation on scroll
@@ -212,8 +216,65 @@ function addStar() {
 }
 
 
+function addStar2() {
+
+  ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
+
+  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+  
+  
+  ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+
+  // color is yellow
+  const material = new THREE.MeshStandardMaterial({color:0xffff00}); // define material
+
+
+  const star = new THREE.Mesh(geometry, material); // define the mesh
+
+
+
+  // create an array of 3 values randomly generated from -100 and +100
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+
+  star.position.set(x, y, z); // set the position of the star
+
+  scene.add(star); // add star to scene
+}
+
+function addStar3() {
+
+  ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
+
+  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+  
+  
+  ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+
+  // color is Blue
+  const material = new THREE.MeshStandardMaterial({color:0x0000ff}); // define material
+
+
+  const star = new THREE.Mesh(geometry, material); // define the mesh
+
+
+
+  // create an array of 3 values randomly generated from -100 and +100
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+
+  star.position.set(x, y, z); // set the position of the star
+
+  scene.add(star); // add star to scene
+}
+
+
+
 // create an array of X values and for each values call the addStar function
 Array(150).fill().forEach(addStar);
+
+Array(150).fill().forEach(addStar2);
+
+Array(150).fill().forEach(addStar3);
+
 
 // rendering the scene
 function rendering() {
