@@ -178,7 +178,7 @@ loader.load('/images/yellow.glb', function(gltf) {
 
   // addCoordinateMarkers
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper(15);
 
   //scene.add( axesHelper );
 
@@ -211,7 +211,7 @@ loader.load('/images/blue.glb', function(gltf) {
   gltf.scene.position.set(-64.1, 33.168, -156.455);
   gltf.scene.scale.set(1, 1, 1);
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper(15);
 
   axesHelper.position.set(-64.1, 33.168, -156.455);
   gltf.scene.add(axesHelper);
@@ -230,7 +230,7 @@ loader.load('/images/green.glb', function(gltf) {
   gltf.scene.position.set(-51.858, 33.168, -118.778);
   gltf.scene.scale.set(1, 1, 1);
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper(15);
 
   axesHelper.position.set(-51.858, 33.168, -118.778);
   gltf.scene.add(axesHelper);
@@ -329,7 +329,7 @@ function addStar() {
   scene.add(star); // add star to scene
 
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper( 15 );
   axesHelper.position.set(x, y, z);
   scene.add(axesHelper);
 
@@ -362,7 +362,7 @@ function addStar2() {
 
   scene.add(star); // add star to scene
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper( 15 );
   axesHelper.position.set(x, y, z);
   scene.add(axesHelper);
 }
@@ -394,7 +394,7 @@ function addStar3() {
 
   scene.add(star); // add star to scene
 
-  const axesHelper = new AxesHelper( 20 );
+  const axesHelper = new AxesHelper( 15 );
   axesHelper.position.set(x, y, z);
   scene.add(axesHelper);
 }
