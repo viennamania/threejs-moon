@@ -188,7 +188,9 @@ window.addEventListener('resize', () => {
 
 function addStar() {
 
-  const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
+  ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
+
+  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
   
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
