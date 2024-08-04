@@ -132,7 +132,10 @@ const moon = new THREE.Mesh(
   
   //new THREE.SphereGeometry(12, 32, 32),
 
-  new THREE.SphereGeometry(20, 20, 20),
+  //new THREE.SphereGeometry(20, 20, 20),
+
+  new THREE.SphereGeometry(200, 200, 200),
+
 
   new THREE.MeshStandardMaterial({
     map: moonTexture,
@@ -142,6 +145,8 @@ const moon = new THREE.Mesh(
 //moon.position.set(-30, -20, 35);
 
 moon.position.set(0, 0, 0);
+
+//moon.position.set(-30, -20, 35);
 
 
 scene.add(moon);
@@ -194,13 +199,23 @@ loader.load('/images/green.glb', function(gltf) {
   gltf.scene.position.set(-51.858, 33.168, -118.778);
   gltf.scene.scale.set(0.5, 0.5, 0.5);
 });
+*/
 
 loader.load('/images/blue.glb', function(gltf) {
   scene.add(gltf.scene);
   gltf.scene.position.set(-64.1, 33.168, -156.455);
   gltf.scene.scale.set(0.5, 0.5, 0.5);
+
+  const axesHelper = new AxesHelper( 50 );
+
+  axesHelper.position.set(-64.1, 33.168, -156.455);
+  gltf.scene.add(axesHelper);
+
+
+
+
 });
-*/
+
 
 
 
@@ -222,6 +237,7 @@ function moveCamera() {
   moon.rotation.x += 0.5;
   moon.rotation.y += 0.5;
   moon.rotation.z += 0.5;
+
 
   dodecahedron.rotation.y += 0.08;
   dodecahedron.rotation.z += 0.04;
@@ -245,7 +261,7 @@ function moveCamera() {
   camera.rotation.y = t * -0.0002;
   */
 
-  camera.position.z = t * -50;
+  camera.position.z = t * -80;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
 
@@ -268,6 +284,8 @@ function addStar() {
 
   ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
 
+  //const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+
   const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
   
   
@@ -282,7 +300,9 @@ function addStar() {
 
 
   // create an array of 3 values randomly generated from -100 and +100
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+  //const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
 
   star.position.set(x, y, z); // set the position of the star
 
@@ -308,7 +328,7 @@ function addStar2() {
 
 
   // create an array of 3 values randomly generated from -100 and +100
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
 
   star.position.set(x, y, z); // set the position of the star
 
@@ -333,7 +353,7 @@ function addStar3() {
 
 
   // create an array of 3 values randomly generated from -100 and +100
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
 
   star.position.set(x, y, z); // set the position of the star
 
