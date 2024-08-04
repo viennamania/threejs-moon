@@ -30,7 +30,7 @@ const torusMaterial = new THREE.MeshStandardMaterial({
   normalMap: torusGeometryNormalTexture,
 }); // define material
 const torus = new THREE.Mesh(torusGeometry, torusMaterial); // define the mesh
-scene.add(torus); // add torus to scene
+//scene.add(torus); // add torus to scene
 
 // lights
 const pointLight = new THREE.PointLight(0xffffff); // define pointLight
@@ -48,7 +48,7 @@ const controls = new OrbitControls(camera, renderer.domElement); // define orbit
 
 // scene background
 const spaceTexture = new THREE.TextureLoader().load('images/pexels-nicole-avagliano-2312040-min.jpg'); // define texture
-scene.background = spaceTexture; // define scene background
+//scene.background = spaceTexture; // define scene background
 
 // dodecahedron
 const dodecahedronGeometryTexture = new THREE.TextureLoader().load('images/pexels-bella-chew-1368317-min.jpg'); // define texture
@@ -65,7 +65,7 @@ const dodecahedron = new THREE.Mesh(
     normalMap: dodecahedronGeometryNormalTexture,
   }) // define material
 ); // define mesh
-scene.add(dodecahedron); // add dodecahedron to scene
+//scene.add(dodecahedron); // add dodecahedron to scene
 
 // capsule
 const capsuleGeometryTexture = new THREE.TextureLoader().load('images/pexels-karolina-grabowska-4040567-min.jpg'); // define texture
@@ -79,7 +79,7 @@ const capsule = new THREE.Mesh(
   }) // define material
 ); // define mesh
 capsule.position.set(-40, 50, -5); // set position
-scene.add(capsule); // add capsule to scene
+//scene.add(capsule); // add capsule to scene
 
 // icosahedron
 const icosahedronTexture = new THREE.TextureLoader().load('images/pexels-maksim-romashkin-7108217-min.jpg');
@@ -93,7 +93,7 @@ const icosahedron = new THREE.Mesh(
   })
 );
 icosahedron.position.set(-50, 20, 30);
-scene.add(icosahedron);
+//scene.add(icosahedron);
 
 // octahedron
 const octahedronTexture = new THREE.TextureLoader().load('images/seamless-g8ce10d423_1920-min.jpg');
