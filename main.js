@@ -157,8 +157,7 @@ scene.add(moon);
 YELLOW VOXEL
 ( -47.086 , 42.943 , -122.245 )
 
-GREEN VOXEL
-( -51.858 , 33.168 , -118.778 )
+
 
 BLUE VOXEL
 ( -64.1 , 33.168 , -156.455 )
@@ -173,7 +172,7 @@ loader.load('/images/yellow.glb', function(gltf) {
 
   // addCoordinateMarkers
 
-  const axesHelper = new AxesHelper( 50 );
+  const axesHelper = new AxesHelper( 20 );
 
   //scene.add( axesHelper );
 
@@ -204,9 +203,9 @@ loader.load('/images/green.glb', function(gltf) {
 loader.load('/images/blue.glb', function(gltf) {
   scene.add(gltf.scene);
   gltf.scene.position.set(-64.1, 33.168, -156.455);
-  gltf.scene.scale.set(0.5, 0.5, 0.5);
+  gltf.scene.scale.set(1, 1, 1);
 
-  const axesHelper = new AxesHelper( 50 );
+  const axesHelper = new AxesHelper( 20 );
 
   axesHelper.position.set(-64.1, 33.168, -156.455);
   gltf.scene.add(axesHelper);
@@ -217,7 +216,21 @@ loader.load('/images/blue.glb', function(gltf) {
 });
 
 
+//GREEN VOXEL
+//( -51.858 , 33.168 , -118.778 )
 
+loader.load('/images/green.glb', function(gltf) {
+  scene.add(gltf.scene);
+  gltf.scene.position.set(-51.858, 33.168, -118.778);
+  gltf.scene.scale.set(1, 1, 1);
+
+  const axesHelper = new AxesHelper( 20 );
+
+  axesHelper.position.set(-51.858, 33.168, -118.778);
+  gltf.scene.add(axesHelper);
+
+
+});
 
 
 
