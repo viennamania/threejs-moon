@@ -307,7 +307,7 @@ function addStar() {
 
   //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
   
-  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
+  const geometry = new THREE.BoxGeometry(8, 8, 8); // define geometry
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
 
@@ -343,7 +343,7 @@ function addStar2() {
 
   //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
   
-  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
+  const geometry = new THREE.BoxGeometry(8, 8, 8); // define geometry
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
 
@@ -373,7 +373,7 @@ function addStar3() {
 
   //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
 
-  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
+  const geometry = new THREE.BoxGeometry(8, 8, 8); // define geometry
 
   
   
