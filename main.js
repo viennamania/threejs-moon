@@ -2,6 +2,13 @@ import './assets/style/style.css';
 import * as THREE from '/node_modules/three/build/three.module.js';
 import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls';
 
+// LoaderUtils
+
+// GLTFLoader
+
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+
 // create scene
 const scene = new THREE.Scene(); // define scene
 
@@ -135,6 +142,31 @@ moon.position.set(0, 0, 0);
 
 scene.add(moon);
 
+
+// load glb file
+/*
+YELLOW VOXEL
+( -47.086 , 42.943 , -122.245 )
+
+GREEN VOXEL
+( -51.858 , 33.168 , -118.778 )
+
+BLUE VOXEL
+( -64.1 , 33.168 , -156.455 )
+ */
+
+const loader = new GLTFLoader();
+loader.load('/images/yellow.glb', function(gltf) {
+  scene.add(gltf.scene);
+  gltf.scene.position.set(-47.086, 42.943, -122.245);
+  gltf.scene.scale.set(0.5, 0.5, 0.5);
+});
+
+
+
+
+
+
 // animation on scroll
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
@@ -171,7 +203,7 @@ function moveCamera() {
   camera.rotation.y = t * -0.0002;
   */
 
-  camera.position.z = t * -15;
+  camera.position.z = t * -50;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
 
