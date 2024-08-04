@@ -12,6 +12,7 @@ import { AxesHelper } from 'three/src/helpers/AxesHelper.js';
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { normalMap } from 'three/examples/jsm/nodes/Nodes.js';
+import { Sphere } from 'three';
 
 
 // create scene
@@ -301,6 +302,14 @@ window.addEventListener('resize', () => {
 
 function addStar() {
 
+  /*
+  const geometry = new THREE.BoxGeometry( 1, 1, 1 ); 
+  const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} ); 
+  const cube = new THREE.Mesh( geometry, material ); 
+  scene.add( cube );
+  */
+  
+  
   ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
 
   //const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
@@ -312,17 +321,46 @@ function addStar() {
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
 
   // color is green
-  const material = new THREE.MeshStandardMaterial({color:0x00ff00}); // define material
-
+  //const material = new THREE.MeshStandardMaterial({color:0x00ff00}); // define material
+  const material = new THREE.MeshBasicMaterial({color:0x00ff00}); // define material
 
   const star = new THREE.Mesh(geometry, material); // define the mesh
+
+
 
 
 
   // create an array of 3 values randomly generated from -100 and +100
   //const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+  
+  //const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+
+  //SphereGeometry(200, 200, 200),
+
+  // random values for the position of the star is surface of SphereGeometry(200, 200, 200)
+
+  // surface of SphereGeometry(200, 200, 200) is the moon
+
+  // get x, y, z values from the surface of the moon
+  ///Sphere random values for the position of the star is surface of SphereGeometry(200, 200, 200)
+
+  // surface of SphereGeometry(200, 200, 200) is the moon
+
+  // get x, y, z values from the surface of the moon using THREE.Vector3()
+
+
+  let vector = new THREE.Vector3();
+  // get the position of the moon
+  let position = moon.position;
+  let radius = moon.geometry.parameters.radius;
+  //let randomPointOnSurface =  new THREE.Vector3().copy(position).add(vector.setFromSphericalCoords(radius, Math.random() * Math.PI, Math.random() * Math.PI));
+
+  // full surface of the moon
+  let randomPointOnSurface =  new THREE.Vector3().copy(position).add(vector.setFromSphericalCoords(radius, Math.random() * Math.PI, Math.random() * Math.PI));
+
+  const [x, y, z] = Math.random() < 0.5 ? [randomPointOnSurface.x, randomPointOnSurface.y, randomPointOnSurface.z] : [-randomPointOnSurface.x, -randomPointOnSurface.y, -randomPointOnSurface.z];
+
 
   star.position.set(x, y, z); // set the position of the star
 
@@ -356,7 +394,22 @@ function addStar2() {
 
 
   // create an array of 3 values randomly generated from -100 and +100
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+  //const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+
+  let vector = new THREE.Vector3();
+  // get the position of the moon
+  let position = moon.position;
+  let radius = moon.geometry.parameters.radius;
+  let randomPointOnSurface =  new THREE.Vector3().copy(position).add(vector.setFromSphericalCoords(radius, Math.random() * Math.PI, Math.random() * Math.PI));
+
+  //const [x, y, z] = [randomPointOnSurface.x, randomPointOnSurface.y, randomPointOnSurface.z];
+
+  
+  
+  const [x, y, z] = Math.random() < 0.5 ? [randomPointOnSurface.x, randomPointOnSurface.y, randomPointOnSurface.z] : [-randomPointOnSurface.x, -randomPointOnSurface.y, -randomPointOnSurface.z];
+
+
+
 
   star.position.set(x, y, z); // set the position of the star
 
@@ -388,7 +441,19 @@ function addStar3() {
 
 
   // create an array of 3 values randomly generated from -100 and +100
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+  //const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+  let vector = new THREE.Vector3();
+  // get the position of the moon
+  let position = moon.position;
+  let radius = moon.geometry.parameters.radius;
+  let randomPointOnSurface =  new THREE.Vector3().copy(position).add(vector.setFromSphericalCoords(radius, Math.random() * Math.PI, Math.random() * Math.PI));
+
+  //const [x, y, z] = [randomPointOnSurface.x, randomPointOnSurface.y, randomPointOnSurface.z];
+
+  const [x, y, z] = Math.random() < 0.5 ? [randomPointOnSurface.x, randomPointOnSurface.y, randomPointOnSurface.z] : [-randomPointOnSurface.x, -randomPointOnSurface.y, -randomPointOnSurface.z];
+
+
+
 
   star.position.set(x, y, z); // set the position of the star
 
