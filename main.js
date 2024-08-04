@@ -107,14 +107,22 @@ const octahedron = new THREE.Mesh(
   })
 );
 octahedron.position.set(50, -40, -20);
-scene.add(octahedron);
+//scene.add(octahedron);
 
 // moon
-const moonTexture = new THREE.TextureLoader().load('images/7XyId7s-min.jpeg');
+///const moonTexture = new THREE.TextureLoader().load('images/7XyId7s-min.jpeg');
+
+const moonTexture = new THREE.TextureLoader().load('images/dragon-texture.jpg');
+
+
 const moonNormalTexture = new THREE.TextureLoader().load('images/172_norm-min.jpg');
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(12, 32, 32),
+  
+  //new THREE.SphereGeometry(12, 32, 32),
+
+  new THREE.SphereGeometry(20, 20, 20),
+
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     normalMap: moonNormalTexture,
@@ -127,9 +135,15 @@ scene.add(moon);
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   
+  /*
   moon.rotation.x += 0.05;
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
+  */
+
+  moon.rotation.x += 0.5;
+  moon.rotation.y += 0.5;
+  moon.rotation.z += 0.5;
 
   dodecahedron.rotation.y += 0.08;
   dodecahedron.rotation.z += 0.04;
@@ -147,9 +161,16 @@ function moveCamera() {
   octahedron.rotation.z += 0.03;
   octahedron.rotation.z += 0.01;
 
+  /*
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
+  */
+
+  camera.position.z = t * -15;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
+
 }
 
 document.body.onscroll = moveCamera;
@@ -166,16 +187,28 @@ window.addEventListener('resize', () => {
 });
 
 function addStar() {
+
   const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
-  const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+  
+  
+  ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+
+  // color is green
+  const material = new THREE.MeshStandardMaterial({color:0x00ff00}); // define material
+
+
   const star = new THREE.Mesh(geometry, material); // define the mesh
+
+
 
   // create an array of 3 values randomly generated from -100 and +100
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
 
   star.position.set(x, y, z); // set the position of the star
+
   scene.add(star); // add star to scene
 }
+
 
 // create an array of X values and for each values call the addStar function
 Array(150).fill().forEach(addStar);
