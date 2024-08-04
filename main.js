@@ -11,6 +11,7 @@ import { AxesHelper } from 'three/src/helpers/AxesHelper.js';
 // GLTFLoader
 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { normalMap } from 'three/examples/jsm/nodes/Nodes.js';
 
 
 // create scene
@@ -123,7 +124,10 @@ octahedron.position.set(50, -40, -20);
 // moon
 ///const moonTexture = new THREE.TextureLoader().load('images/7XyId7s-min.jpeg');
 
-const moonTexture = new THREE.TextureLoader().load('images/dragon-texture.jpg');
+//const moonTexture = new THREE.TextureLoader().load('images/dragon-texture.jpg');
+
+//planet_texture_by_thunorrad
+const moonTexture = new THREE.TextureLoader().load('images/planet_texture_by_thunorrad.jpg');
 
 
 const moonNormalTexture = new THREE.TextureLoader().load('images/172_norm-min.jpg');
@@ -139,7 +143,9 @@ const moon = new THREE.Mesh(
 
   new THREE.MeshStandardMaterial({
     map: moonTexture,
-    normalMap: moonNormalTexture,
+    //normalMap: moonNormalTexture,
+    //normalMap: moonTexture,
+    
   })
 );
 //moon.position.set(-30, -20, 35);
@@ -299,8 +305,9 @@ function addStar() {
 
   //const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
 
-  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+  //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
   
+  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
 
@@ -320,6 +327,13 @@ function addStar() {
   star.position.set(x, y, z); // set the position of the star
 
   scene.add(star); // add star to scene
+
+
+  const axesHelper = new AxesHelper( 20 );
+  axesHelper.position.set(x, y, z);
+  scene.add(axesHelper);
+
+
 }
 
 
@@ -327,8 +341,9 @@ function addStar2() {
 
   ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
 
-  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+  //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
   
+  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
 
@@ -346,13 +361,20 @@ function addStar2() {
   star.position.set(x, y, z); // set the position of the star
 
   scene.add(star); // add star to scene
+
+  const axesHelper = new AxesHelper( 20 );
+  axesHelper.position.set(x, y, z);
+  scene.add(axesHelper);
 }
 
 function addStar3() {
 
   ///const geometry = new THREE.SphereGeometry(0.25, 24, 24); // define geometry
 
-  const geometry = new THREE.SphereGeometry(1, 24, 24); // define geometry
+  //const geometry = new THREE.SphereGeometry(3, 24, 24); // define geometry
+
+  const geometry = new THREE.BoxGeometry(10, 10, 10); // define geometry
+
   
   
   ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
@@ -371,6 +393,10 @@ function addStar3() {
   star.position.set(x, y, z); // set the position of the star
 
   scene.add(star); // add star to scene
+
+  const axesHelper = new AxesHelper( 20 );
+  axesHelper.position.set(x, y, z);
+  scene.add(axesHelper);
 }
 
 
