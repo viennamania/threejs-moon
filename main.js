@@ -2,6 +2,10 @@ import './assets/style/style.css';
 import * as THREE from '/node_modules/three/build/three.module.js';
 import { OrbitControls } from '/node_modules/three/examples/jsm/controls/OrbitControls';
 
+// AxesHelper
+
+import { AxesHelper } from 'three/src/helpers/AxesHelper.js';
+
 // LoaderUtils
 
 // GLTFLoader
@@ -156,11 +160,49 @@ BLUE VOXEL
  */
 
 const loader = new GLTFLoader();
+
 loader.load('/images/yellow.glb', function(gltf) {
   scene.add(gltf.scene);
   gltf.scene.position.set(-47.086, 42.943, -122.245);
+  gltf.scene.scale.set(1, 1, 1);
+
+  // addCoordinateMarkers
+
+  const axesHelper = new AxesHelper( 50 );
+
+  //scene.add( axesHelper );
+
+  //gltf.scene.add(axesHelper);
+
+  axesHelper.position.set(-47.086, 42.943, -122.245);
+  gltf.scene.add(axesHelper);
+
+
+
+
+});
+
+// addCoordinateMarkers
+
+//const axesHelper = new AxesHelper( 50 );
+//scene.add( axesHelper );
+
+
+/*
+loader.load('/images/green.glb', function(gltf) {
+  scene.add(gltf.scene);
+  gltf.scene.position.set(-51.858, 33.168, -118.778);
   gltf.scene.scale.set(0.5, 0.5, 0.5);
 });
+
+loader.load('/images/blue.glb', function(gltf) {
+  scene.add(gltf.scene);
+  gltf.scene.position.set(-64.1, 33.168, -156.455);
+  gltf.scene.scale.set(0.5, 0.5, 0.5);
+});
+*/
+
+
 
 
 
