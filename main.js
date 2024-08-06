@@ -15,6 +15,29 @@ import { normalMap } from 'three/examples/jsm/nodes/Nodes.js';
 import { Sphere } from 'three';
 
 
+
+//const data = require('dataSample.csv');
+
+// read data from dataSample.csv
+
+
+///const data = require('dataSample.csv');
+// ReferenceError: require is not defined
+
+// Function to load CSV data
+async function loadCSVData(url) {
+  const response = await fetch(url);
+  const data = await response.text();
+  return data;
+}
+
+
+
+
+
+
+
+
 // create scene
 const scene = new THREE.Scene(); // define scene
 
@@ -156,7 +179,15 @@ moon.position.set(0, 0, 0);
 //moon.position.set(-30, -20, 35);
 
 
-scene.add(moon);
+
+
+//scene.add(moon);
+
+
+
+
+
+
 
 
 // load glb file
@@ -281,14 +312,25 @@ function moveCamera() {
   camera.rotation.y = t * -0.0002;
   */
 
+  /*
   camera.position.z = t * -80;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
+  */
+
+
+  camera.position.z = t * -0.3;
+  camera.position.x = t * -0.0;
+  camera.rotation.y = t * -0.0;
+
+
 
 }
 
 document.body.onscroll = moveCamera;
 moveCamera();
+
+
 
 // make canvas responsive
 window.addEventListener('resize', () => {
@@ -467,11 +509,97 @@ function addStar3() {
 
 
 // create an array of X values and for each values call the addStar function
+/*
 Array(550).fill().forEach(addStar);
 
 Array(550).fill().forEach(addStar2);
 
 Array(550).fill().forEach(addStar3);
+*/
+
+
+
+
+
+//const geometry = new THREE.BoxGeometry(6, 6, 6); // define geometry
+///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+// color is yellow
+//const material = new THREE.MeshStandardMaterial({color:0xffff00}); // define material
+
+//const star = new THREE.Mesh(geometry, material); // define the mesh
+
+
+//const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(400));
+
+// create an array of 3 values read from local storage file name is dataSample.csv and for each values call the addStar function
+
+// X,Y,Z,colorR,colorG,colorB
+
+// Load data from dataSample.csv
+loadCSVData('dataSample.csv').then(data => {
+
+  //console.log(data);
+  // Process the CSV data here
+
+  /*
+  data.forEach(
+    function(item) {
+      
+      console.log(item.X, item.Y, item.Z, item.colorR, item.colorG, item.colorB);
+
+      star.position.set(item.X, item.Y, item.Z); // set the position of the star
+      scene.add(star); // add star to scene
+    }
+  );
+  */
+ //TypeError: data.forEach is not a function
+
+  data.split('\n').forEach(
+    function(item) {
+      //console.log(item);
+      //console.log(item.split(','));
+
+      let [X, Y, Z, colorR, colorG, colorB] = item.split(',');
+      //console.log(X, Y, Z, colorR, colorG, colorB);
+
+
+      const geometry = new THREE.BoxGeometry(0.01, 0.01, 0.01); // define geometry
+      ///const material = new THREE.MeshStandardMaterial({color:0xffffff}); // define material
+      // color is yellow
+
+      ///const material = new THREE.MeshStandardMaterial({color:0xffff00}); // define material
+      
+      const material = new THREE.MeshStandardMaterial({color: new THREE.Color(colorR, colorG, colorB)}); // define material
+      
+      const star = new THREE.Mesh(geometry, material); // define the mesh
+      
+
+      star.position.set(X, Y, Z); // set the position of the star
+
+      scene.add(star); // add star to scene
+
+
+    } 
+  );
+
+
+});
+
+
+
+
+//star.position.set(x, y, z); // set the position of the star
+
+//scene.add(star); // add star to scene
+
+//const axesHelper = new AxesHelper( 15 );
+//axesHelper.position.set(x, y, z);
+//scene.add(axesHelper);
+
+
+
+
+
 
 
 // rendering the scene
