@@ -536,7 +536,7 @@ Array(550).fill().forEach(addStar3);
 // X,Y,Z,colorR,colorG,colorB
 
 // Load data from dataSample.csv
-loadCSVData('dataSample.csv').then(data => {
+loadCSVData('/dataSample.csv').then(data => {
 
   //console.log(data);
   // Process the CSV data here
